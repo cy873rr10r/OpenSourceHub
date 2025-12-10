@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OpenSource Programs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+  <div class="page-root">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-logo">
+          <span class="logo-icon">🚀</span>
+          <span class="logo-text">OpenSource</span>
+        </div>
+        <ul class="navbar-menu">
+          <li><a href="#hero-section" class="nav-link">Home</a></li>
+          <li><a href="#about-section" class="nav-link">About</a></li>
+          <li><a href="#programs-section" class="nav-link">Explore Programs</a></li>
+          <li><button class="nav-link nav-ai-mentor-btn" id="navbar-ai-mentor">AI Mentor</button></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- AI Mentor Sidebar -->
+    <div class="ai-mentor-sidebar" id="ai-mentor-sidebar">
+      <div class="sidebar-header">
+        <h3>AI Mentor</h3>
+        <button class="sidebar-close" id="sidebar-close">✕</button>
+      </div>
+      <div id="sidebar-messages" class="sidebar-messages"></div>
+      <div class="sidebar-input-area">
+        <input
+          type="text"
+          id="sidebar-agent-input"
+          class="sidebar-input"
+          placeholder="Ask about programs, deadlines, or get recommendations..."
+          autocomplete="off"
+        />
+        <button class="sidebar-send-btn" id="sidebar-send">➤</button>
+      </div>
+    </div>
+
+    <!-- Sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Landing / hero -->
+    <section class="hero-landing" id="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title fade-animate">
+          Discover every open‑source program in one place
+        </h1>
+        <p class="hero-subtitle">
+          Discover vetted open‑source programs. Filter by level, set reminders, and apply on time.
+        </p>
+        <div class="hero-cta-group">
+          <button class="hero-cta" id="scroll-programs">
+            <span>Explore Programs</span>
+          </button>
+          <button class="hero-cta hero-cta-secondary" id="scroll-chat">
+            <span>Chat with AI Mentor</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Open Source Section -->
+    <section class="about-section" id="about-section">
+      <div class="about-content">
+        <div class="about-opensource">
+          <h2 class="about-opensource-title">What is Open Source?</h2>
+          <p class="about-text">
+            Open source software is publicly accessible code that anyone can see, modify, and distribute. Contributing to open source programs gives you incredible opportunities to grow as a developer.
+          </p>
+          <div class="opensource-benefits">
+            <div class="benefit-item">
+              <div class="benefit-icon">💻</div>
+              <h4>Learn Real-World Skills</h4>
+              <p>Work on projects used by millions</p>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">🤝</div>
+              <h4>Build Your Network</h4>
+              <p>Connect with global developers</p>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">📈</div>
+              <h4>Boost Your Career</h4>
+              <p>Stand out on your resume</p>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">🎁</div>
+              <h4>Get Rewarded</h4>
+              <p>Earn stipends and recognition</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-features">
+          <div class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3>Global Programs</h3>
+            <p>Programs from around the world</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>All Levels</h3>
+            <p>Beginner to advanced</p>
+          </div>
+          <div class="feature-card ai-mentor-card">
+            <div class="feature-icon">🤖</div>
+            <h3>AI Mentor</h3>
+            <p>Personalized program guidance</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="content-surface">
+      <!-- Upcoming programs / filters -->
+      <section class="programs-wrapper" id="programs-section">
+        <header class="programs-header">
+          <h2>Upcoming Programs</h2>
+          <p>
+            Discover and apply to amazing open‑source programs from around the world.
+          </p>
+        </header>
+
+        <div class="filter-card">
+          <div class="filter-title-row">
+            <div class="filter-icon">⌂</div>
+            <div class="filter-title-text">
+              <h3>Filter Programs</h3>
+            </div>
+          </div>
+
+          <div class="filter-grid">
+            <div class="filter-group">
+              <label>Difficulty</label>
+              <div class="filter-select-row">
+                <button class="filter-chip active" data-difficulty="">All Levels</button>
+                <button class="filter-chip" data-difficulty="beginner">Beginner</button>
+                <button class="filter-chip" data-difficulty="intermediate">Intermediate</button>
+                <button class="filter-chip" data-difficulty="advanced">Advanced</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="programs-grid" class="programs-grid">
+          <!-- Program cards rendered by app.js -->
+        </div>
+      </section>
+
+      <!-- Subscribe card -->
+      <section class="subscribe-card-section">
+        <div class="subscribe-card">
+          <div class="subscribe-icon-wrap">
+            <div class="subscribe-icon">🔔</div>
+          </div>
+          <h2>Subscribe Now</h2>
+          <p>Just enter your email and get upcoming program reminders instantly.</p>
+          <form id="subscribe-form" class="subscribe-form">
+            <input
+              type="email"
+              id="subscribe-email"
+              placeholder="Enter your email"
+              required
+            />
+            <button type="submit">
+              <span class="subscribe-btn-icon">🔔</span>
+              <span>Subscribe</span>
+            </button>
+          </form>
+          <div id="subscribe-status" class="subscribe-status"></div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
