@@ -18,7 +18,7 @@ services:
       ADMIN_EMAIL: "Your admin email here"
       
       # AI Configuration
-      GOOGLE_API_KEY: AIzaSyAb9AHy07_7AQhb4on2H5VugOUMM-uRyTk
+      GOOGLE_API_KEY: Your API Key
       
       # Kestra configuration
       KESTRA_CONFIGURATION: |
