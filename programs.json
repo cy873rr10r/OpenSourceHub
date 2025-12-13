@@ -140,5 +140,39 @@
     ],
     "tech": "web",
     "id": 11
+  },
+  {
+    "name": "Social Winter of Code",
+    "slug": "swoc",
+    "difficulty": "beginner",
+    "program_type": "Open Source",
+    "timeline": "Winter season (Dec-Feb)",
+    "opens_in": "November",
+    "deadline": "Varies yearly",
+    "description": "Winter-long open-source program to connect students with open-source organizations and projects.",
+    "official_site": "https://www.swoc.in/",
+    "tags": [
+      "Remote",
+      "Global"
+    ],
+    "tech": "web",
+    "id": 12
+  },
+  {
+    "name": "Social Summer of Code",
+    "slug": "ssoc",
+    "difficulty": "beginner",
+    "program_type": "Open Source",
+    "timeline": "Summer (June-August)",
+    "opens_in": "April",
+    "deadline": "June 10, 2025",
+    "description": "Summer-long open-source program organized by Social and Reskilll to connect students with open-source organizations and projects.",
+    "official_site": "https://reskilll.com/hack/ssoc4",
+    "tags": [
+      "Remote",
+      "Global"
+    ],
+    "tech": "web",
+    "id": 13
   }
 ]

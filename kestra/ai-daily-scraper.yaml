@@ -197,7 +197,7 @@ tasks:
           {{ read(outputs['scrape-web-sources'].outputFiles['scraped_data.txt']) }}
           
           TASK: Extract ALL open-source programs mentioned in the scraped content above.
-          Look for programs like: Outreachy, GSoC, MLH Fellowship, LFX Mentorship, Hacktoberfest, etc.
+          Look for programs like: Outreachy, GSoC, MLH Fellowship, LFX Mentorship, Hacktoberfest, Social Winter of Code (SWOC), Social Summer of Code (SSoC), etc.
           
           For EACH program you find, create a JSON object with these fields:
           {
@@ -292,35 +292,45 @@ tasks:
           
           # Program detection based on URL match first, then content
           program_candidates = [
-              ('outreachy.org', 'Outreachy', 'outreachy', 'beginner', 'Internship', '3 months', 
+              ('outreachy.org', 'Outreachy', 'outreachy', 'beginner', 'Internship', '3 months',
                'February and August', 'Varies by round',
                'Paid remote internships for people from underrepresented groups in tech.',
                'https://www.outreachy.org/', ['Paid', 'Remote', 'Global'], 'web'),
-              
+
               ('fellowship.mlh.io', 'MLH Fellowship', 'mlh-fellowship', 'intermediate', 'Fellowship', '12 weeks',
                'Rolling', 'Applications open year-round',
                'Remote software engineering internship alternative with Open Source projects.',
                'https://fellowship.mlh.io/', ['Paid', 'Remote', 'Global'], 'web'),
-              
+
               ('lfx.linuxfoundation.org', 'LFX Mentorship', 'lfx-mentorship', 'intermediate', 'Mentorship', '12 weeks',
                'March, June, September', 'Varies by term',
                'Linux Foundation mentorship connecting developers with open source projects.',
                'https://lfx.linuxfoundation.org/tools/mentorship/', ['Paid', 'Remote', 'Global'], 'devops'),
-              
+
               ('summerofcode.withgoogle.com', 'Google Summer of Code', 'gsoc', 'intermediate', 'Internship', '3 months',
                'March', 'April',
                'Google sponsors students to work with open source organizations.',
                'https://summerofcode.withgoogle.com/', ['Paid', 'Remote', 'Global'], 'web'),
-              
+
               ('hacktoberfest.com', 'Hacktoberfest', 'hacktoberfest', 'beginner', 'Open Source', 'October 1-31',
                'October', 'October 31',
                'Month-long celebration of open source with rewards for pull requests.',
                'https://hacktoberfest.com/', ['Remote', 'Global'], 'web'),
-              
-              ('developers.google.com/season-of-docs', 'Google Season of Docs', 'google-season-of-docs', 'intermediate', 
+
+              ('developers.google.com/season-of-docs', 'Google Season of Docs', 'google-season-of-docs', 'intermediate',
                'Mentorship', '3-6 months', 'February', 'April',
                'Bringing technical writers and open source projects together.',
                'https://developers.google.com/season-of-docs', ['Paid', 'Remote', 'Global'], 'web'),
+
+              ('swoc.in', 'Social Winter of Code', 'swoc', 'beginner', 'Open Source', 'Winter season (Dec-Feb)',
+               'November', 'Varies yearly',
+               'Winter-long open-source program to connect students with open-source organizations and projects.',
+               'https://www.swoc.in/', ['Remote', 'Global'], 'web'),
+
+              ('reskilll.com/hack/ssoc', 'Social Summer of Code', 'ssoc', 'beginner', 'Open Source', 'Summer (June-August)',
+               'April', 'June 10, 2025',
+               'Summer-long open-source program organized by Social and Reskilll to connect students with open-source organizations and projects.',
+               'https://reskilll.com/hack/ssoc4', ['Remote', 'Global'], 'web'),
           ]
           
           # First pass: Check if source URL directly matches a program
@@ -340,7 +350,7 @@ tasks:
           # Second pass: Scan combined content for programs mentioned (if URL match didn't work)
           if len(new_programs) < 2:
               content_keywords = [
-                  ('google summer of code', 'Google Summer of Code', 2),
+                  ('google summer of code', 'Google Summer of Code', 3),
                   ('outreachy', 'Outreachy', 0),
                   ('mlh fellowship', 'MLH Fellowship', 1),
                   ('major league hacking', 'MLH Fellowship', 1),
@@ -348,6 +358,10 @@ tasks:
                   ('linux foundation mentorship', 'LFX Mentorship', 2),
                   ('hacktoberfest', 'Hacktoberfest', 4),
                   ('season of docs', 'Google Season of Docs', 5),
+                  ('social winter of code', 'Social Winter of Code', 6),
+                  ('swoc', 'Social Winter of Code', 6),
+                  ('social summer of code', 'Social Summer of Code', 7),
+                  ('ssoc', 'Social Summer of Code', 7),
               ]
               
               for keyword, prog_name, prog_idx in content_keywords:
