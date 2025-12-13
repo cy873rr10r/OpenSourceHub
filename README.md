@@ -166,20 +166,20 @@ docker-compose up -d
 ```
 
 Access Kestra UI: **http://localhost:8080**
-- Username: `cybterrior@gmail.com`
-- Password: `Heythere123321`
+- Username: `id`
+- Password: `pass`
 
 ### 3️⃣ Upload Workflows
 
 ```bash
 # Upload AI Daily Scraper
 curl -X POST http://localhost:8080/api/v1/flows/import \
-  -u 'cybterrior@gmail.com:Heythere123321' \
+  -u 'id:pass' \
   -F fileUpload=@kestra/ai-daily-scraper.yaml
 
 # Upload AI Smart Reminders
 curl -X POST http://localhost:8080/api/v1/flows/import \
-  -u 'cybterrior@gmail.com:Heythere123321' \
+  -u 'id:pass' \
   -F fileUpload=@kestra/ai-smart-reminders.yaml
 ```
 
@@ -316,11 +316,11 @@ OpenSourceHub/
 ```bash
 # Trigger AI Daily Scraper
 curl -X POST http://localhost:8080/api/v1/executions/opensource/ai-daily-scraper \
-  -u 'cybterrior@gmail.com:Heythere123321'
+  -u 'id:pass'
 
 # Trigger AI Smart Reminders
 curl -X POST http://localhost:8080/api/v1/executions/opensource/ai-smart-reminders \
-  -u 'cybterrior@gmail.com:Heythere123321'
+  -u 'id:pass'
 ```
 
 ### View Execution Logs
@@ -337,11 +337,11 @@ Create `.env` file (optional):
 
 ```env
 # Gemini AI (already embedded in workflows)
-GEMINI_API_KEY=AIzaSyAb9AHy07_7AQhb4on2H5VugOUMM-uRyTk
+GEMINI_API_KEY=API_Key
 
 # SMTP (for reminders)
-SMTP_USERNAME=sagarsthakuri188@gmail.com
-SMTP_PASSWORD=btqm_tmao_xzxb_erxu
+SMTP_USERNAME=user mail
+SMTP_PASSWORD=app password
 ```
 
 ### Enable Scheduled Workflows
@@ -368,52 +368,6 @@ triggers:
 ### Program Filters
 ![Filters](https://via.placeholder.com/800x400?text=Program+Filters)
 
----
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-
-- Follow PEP 8 for Python code
-- Use meaningful commit messages
-- Test workflows before submitting
-- Update documentation for new features
-
----
-
-## 🐛 Troubleshooting
-
-### Kestra Not Starting
-
-```bash
-docker-compose down
-docker-compose up -d --force-recreate
-```
-
-### Backend Connection Refused
-
-Check if FastAPI is running on correct host:
-```bash
-# Inside Docker, use: 172.17.0.1:8000
-# On host, use: localhost:8000
-```
-
-### AI Quota Exceeded
-
-The fallback parser will activate automatically. To increase quota:
-- Upgrade to Gemini paid tier
-- Reduce scraping frequency
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -426,16 +380,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Google Gemini** - For powerful AI capabilities
 - **FastAPI** - For the high-performance web framework
 - **DuckDuckGo** - For privacy-focused search
-
----
-
-## 📬 Contact
-
-**Project Maintainer**: Your Name
-
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
 
 ---
 

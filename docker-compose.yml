@@ -12,10 +12,10 @@ services:
       # SMTP Configuration
       SMTP_HOST: smtp.gmail.com
       SMTP_PORT: 587
-      SMTP_USER: "Your email here"
-      SMTP_PASS: "Your app password"
+      SMTP_USER: sagarsthakuri188@gmail.com
+      SMTP_PASS: btqm tmao xzxb erxu
       FROM_EMAIL: "OpenSource Team <HelloFriend!>"
-      ADMIN_EMAIL: "Your admin email here"
+      ADMIN_EMAIL: cybterrior@gmail.com
       
       # AI Configuration
       GOOGLE_API_KEY: AIzaSyAb9AHy07_7AQhb4on2H5VugOUMM-uRyTk
