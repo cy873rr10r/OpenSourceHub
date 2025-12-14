@@ -13,8 +13,8 @@ services:
       SMTP_HOST: smtp.gmail.com
       SMTP_PORT: 587
       SMTP_USER: sagarsthakuri188@gmail.com
-      SMTP_PASS: btqm tmao xzxb erxu
-      FROM_EMAIL: "OpenSource Team <HelloFriend!>"
+      SMTP_PASS: btqmtmaoxzxberxu
+      FROM_EMAIL: "sagarsthakuri188@gmail.com"
       ADMIN_EMAIL: cybterrior@gmail.com
       
       # AI Configuration
